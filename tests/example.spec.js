@@ -1,5 +1,7 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
+
+test.describe.serial('JMH Foundation', () => {
 
 test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }, testInfo) => {
   await page.goto('https://playwright.dev/');
@@ -21,4 +23,4 @@ test('homepage has Playwright in title and get started link linking to the intro
 
   // Expects the URL to contain intro.
   await expect(page).toHaveURL(/.*intro/);
-});
+})});
